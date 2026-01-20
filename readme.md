@@ -12,6 +12,8 @@ export PULL_SECRET="~/pull-secret.json"
 Set Image target
 ```sh
 export TARGET_IMAGE=$(oc adm release info --image-for rhel-coreos "quay.io/openshift-release-dev/ocp-release:"$RHCOS_VERSION"-aarch64")
+# or
+export TARGET_IMAGE=$(oc adm release info --image-for rhel-coreos-10 "quay.io/openshift-release-dev/ocp-release:"$RHCOS_VERSION"-aarch64")
 ```
 
 ### Build Red Hat CoreOS Artifacts
