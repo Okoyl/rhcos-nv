@@ -22,4 +22,8 @@ RUN \
     kernel-rpm-macros \
     kernel-srpm-macros.noarch \
   && \
-  dnf clean all
+  dnf clean all && \
+  KVER=$(ls -1 /usr/src/kernels); \
+  sed -i "s/\"KERNEL_VERSION\"[[:space:]]*:[[:space:]]*\"[^\"]*\"/\"KERNEL_VERSION\": \"$KVER\"/" /etc/driver-toolkit-release.json
+
+  
