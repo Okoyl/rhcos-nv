@@ -24,12 +24,9 @@ podman build -f rhcos.containerfile \
 
 ### Build Driver Toolkit Container Image Layer
 ```sh
-# Point to the base image for the driver toolkit
-export BUILDER_IMAGE=$(oc adm release info --image-for driver-toolkit "quay.io/openshift-release-dev/ocp-release:"$RHCOS_VERSION"-aarch64")
 # Build your own driver toolkit image
 podman build -f driver-toolkit.containerfile \
           --authfile $PULL_SECRET \
-          --build-arg BUILDER_IMAGE="$BUILDER_IMAGE" \
           --build-arg KERNEL_REPO=<kernel repo> \
           --tag "driver-toolkit-cs:$RHCOS_VERSION-latest"
 ```
