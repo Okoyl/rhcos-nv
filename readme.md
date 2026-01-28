@@ -29,7 +29,7 @@ export BUILDER_IMAGE=$(oc adm release info --image-for driver-toolkit "quay.io/o
 # Build your own driver toolkit image
 podman build -f driver-toolkit.containerfile \
           --authfile $PULL_SECRET \
-          --build-arg BUILDER_IMAGE="rhcos-cs:$RHCOS_VERSION-latest" \
+          --build-arg BUILDER_IMAGE="$BUILDER_IMAGE" \
           --build-arg KERNEL_REPO=<kernel repo> \
           --tag "driver-toolkit-cs:$RHCOS_VERSION-latest"
 ```
